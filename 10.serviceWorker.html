@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERVICEWORKER</title>
+</head>
+
+<body>
+  <script src="./8.jsonp.js"></script>
+  <script>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('/sw.js').then(function (regist) {
+        console.log(regist)
+        console.log('service worker 注册成功')
+      }).catch(err => {
+        console.log('regist error')
+        console.log(err)
+      })
+    }
+  </script>
+</body>
+
+</html>

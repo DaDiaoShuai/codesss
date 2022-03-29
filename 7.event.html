@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVENT</title>
+</head>
+
+<body>
+  <button class="btn" id="btn">click me</button>
+  <script>
+    const btn = document.querySelector('#btn')
+
+    btn.addEventListener('click', e => {
+      // e.stopImmediatePropagation()
+      console.log('btn')
+    }, {
+      capture: false,
+      once: true
+    })
+
+    btn.addEventListener('click', e => {
+      // e.stopImmediatePropagation()
+      console.log('document')
+      const fragment = document.createDocumentFragment()
+      for (let i = 0; i < 10; i++) {
+        const h1 = document.createElement('h1')
+        h1.textContent = 'Hello, Fragment' + i
+        fragment.append(h1)
+      }
+      console.log((fragment).toString())
+      document.body.appendChild(fragment)
+    }, true)
+  </script>
+</body>
+
+</html>
